@@ -1,18 +1,26 @@
+// src/pages/Login.tsx
 import React, { useState } from 'react';
-import axios from "axios";
+import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import CustomAlert from '../componens/CustomAlert';
+
 
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [alert, setAlert] = useState<{ type: 'success' | 'error' | 'warning', message: string } | null>(null);
   const navigate = useNavigate();
+
+  const showAlert = (type: 'success' | 'error' | 'warning', message: string) => {
+    setAlert({ type, message });
+    setTimeout(() => setAlert(null), 3000);
+  };
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Login button clicked");
 
     if (!username || !password) {
-      alert("Username dan Password harus diisi.");
+      showAlert('warning', 'Username dan Password harus diisi.');
       return;
     }
 
@@ -22,21 +30,20 @@ const Login = () => {
         password
       });
 
-      console.log("Response:", response.data);
-
       const token = response.data.data.token;
       localStorage.setItem("token", token);
 
-      alert("Login berhasil!");
-      navigate('/');
-    } catch (err: any) {
-      console.error('Login gagal:', err);
-      alert("Login gagal. Periksa username/password dan coba lagi.");
+      showAlert('success', 'Login berhasil! Mengarahkan...');
+      setTimeout(() => navigate('/'), 1500);
+    } catch (err) {
+      showAlert('error', 'Login gagal. Periksa username dan password Anda!');
     }
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+    <div className="min-h-screen flex items-center justify-center bg-gray-100 relative">
+      {alert && <CustomAlert type={alert.type} message={alert.message} />}
+
       <div className="w-full max-w-md bg-amber-100 p-8 rounded-lg shadow-md">
         <div className="flex justify-center mb-6">
           <div className="w-16 h-16 rounded-full bg-gray-200 flex items-center justify-center">
@@ -47,7 +54,7 @@ const Login = () => {
         </div>
         <h2 className="text-2xl font-bold text-center mb-1">Sign in to your account</h2>
         <p className="text-sm text-black text-center mb-6">Hello, Please enter your Account!</p>
-        
+
         <form className="space-y-4" onSubmit={handleLogin}>
           <div>
             <label className="block text-sm font-semibold text-black">Username</label>
@@ -59,7 +66,6 @@ const Login = () => {
               className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
-
           <div>
             <label className="block text-sm font-semibold text-black">Password</label>
             <input
@@ -70,15 +76,10 @@ const Login = () => {
               className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
-
           <div className="flex items-center justify-between text-sm">
-            <label className="flex items-center space-x-2"></label>
             <a href="#" className="text-blue-600 hover:underline">Forgot password?</a>
           </div>
-
-          <button type="submit" className="w-full py-2 px-4 bg-amber-400 text-black rounded-md hover:bg-amber-500">
-            Sign in
-          </button>
+          <button type="submit" className="w-full py-2 px-4 bg-amber-400 text-black rounded-md hover:bg-amber-500">Sign in</button>
         </form>
 
         <div className="my-6 flex items-center">
@@ -96,7 +97,7 @@ const Login = () => {
 
         <p className="mt-6 text-center text-sm text-black">
           Don’t have an account?{' '}
-          <a href="#" onClick={() => navigate("/register")} className="text-blue-600 hover:underline">Register</a>
+          <a href="#" className="text-blue-600 hover:underline">Register</a>
         </p>
       </div>
     </div>

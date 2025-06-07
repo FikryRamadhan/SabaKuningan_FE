@@ -20,8 +20,8 @@ const Navbar = () => {
 
   return (
     <header className="w-full border-b shadow-sm bg-amber-100">
-      <div className="max-w-7xl mx-auto flex items-center justify-between p-4">
-        
+      <div className="w-full flex items-center justify-between px-15 py-4">
+
         {/* Logo */}
         <div className="flex items-center gap-2">
           <div className="text-xl font-bold text-black">//</div>
@@ -29,18 +29,19 @@ const Navbar = () => {
         </div>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex space-x-6 text-sm text-black font-medium relative">
+        <nav className="hidden md:flex space-x-6 text-sm text-black font-medium relative flex-grow justify-center">
           <a href="#" className="hover:text-amber-500">Home</a>
           <div className="relative" ref={dropdownRef}>
             <button
               className="hover:text-amber-500"
               onClick={() => setIsDropdownOpen((prev) => !prev)}
             >
-              List
+              Explore
             </button>
             {isDropdownOpen && (
               <div className="absolute top-6 left-0 mt-2 w-40 bg-amber-100 shadow-lg rounded-md z-10">
-                <a href="#" className="block px-4 py-2 hover:bg-amber-400">CoffeShop</a>
+                <a href="#" className="block px-4 py-2 hover:bg-amber-400">Wisata</a>
+                <a href="#" className="block px-4 py-2 hover:bg-amber-400">Restorant</a>
                 <a href="#" className="block px-4 py-2 hover:bg-amber-400">Jobs</a>
                 <a href="#" className="block px-4 py-2 hover:bg-amber-400">Report</a>
               </div>
@@ -49,7 +50,7 @@ const Navbar = () => {
         </nav>
 
         {/* Buttons */}
-        <div className="hidden md:flex items-center space-x-3">
+        <div className="hidden md:flex items-center space-x-3 ml-auto">
           <button className="text-sm px-4 py-1 border border-gray-300 rounded-full hover:bg-gray-400">
             Sign In
           </button>
@@ -69,11 +70,12 @@ const Navbar = () => {
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
         <div className="md:hidden px-4 pb-4 space-y-2 bg-amber-100 text-sm text-black font-medium">
-          <a href="#" className="block hover:text-amber-500 font-extrabold">Home</a>
+          <a href="#" className="block hover:text-amber-500 ">Home</a>
           <details className="group">
-            <summary className="cursor-pointer hover:text-amber-500">List</summary>
+            <summary className="cursor-pointer hover:text-amber-500">Explore</summary>
             <div className="pl-4 mt-1 space-y-1">
-              <a href="#" className="block hover:text-amber-500">CoffeShop</a>
+              <a href="#" className="block hover:text-amber-500">Wisata</a>
+              <a href="#" className="block hover:text-amber-500">Restorant</a>
               <a href="#" className="block hover:text-amber-500">Jobs</a>
               <a href="#" className="block hover:text-amber-500">Report</a>
             </div>
