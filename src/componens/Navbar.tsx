@@ -51,9 +51,9 @@ const Navbar = () => {
 
         {/* Buttons */}
         <div className="hidden md:flex items-center space-x-3 ml-auto">
-          <button className="text-sm px-4 py-1 border border-gray-300 rounded-full hover:bg-gray-400">
+          <a href='/login' className="text-sm px-4 py-1 border border-gray-300 rounded-full hover:bg-gray-400">
             Sign In
-          </button>
+          </a>
           <button className="text-sm px-4 py-1 bg-amber-400 text-white rounded-full hover:bg-amber-500">
             Register
           </button>

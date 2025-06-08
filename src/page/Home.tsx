@@ -4,6 +4,7 @@ import Footer from '../componens/Footer'
 import Rating from '../componens/Rating'
 import Card from '../componens/Card'
 import Header from '../componens/Header'
+import CardTour from '../componens/CardTour'
 const Home = () => {
 
   return (
@@ -13,6 +14,7 @@ const Home = () => {
     <Card />
     <Rating />
     <Footer />
+    {/* <CardTour /> */}
     {/* <div className='text-2xl flex font-bold'>home</div> */}
     </>
   )
