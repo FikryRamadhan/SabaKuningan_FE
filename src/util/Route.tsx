@@ -4,6 +4,7 @@ import Report from "../page/Report";
 import Register from "../page/Register";
 import Login from "../page/Login";
 import Profile from "../page/Profile";
+import Detail from "../page/Detail";
 
 
 const routes=[
@@ -25,6 +26,9 @@ const routes=[
     },{
         patch: "profile",
         page: <Profile />
+    },{
+        patch: "detail",
+        page: <Detail />
     }
 ]
 

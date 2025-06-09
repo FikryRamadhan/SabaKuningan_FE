@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-const categories = ["All", "Wisata", "Restorant", "Jobs", "Report"];
+// Tambahkan "Culture" ke categories
+const categories = ["All", "Wisata", "Restorant", "Jobs", "Report", "Culture"];
 
 const Card = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
@@ -34,7 +35,6 @@ const Card = () => {
     fetchAll();
   }, []);
 
-
   // Filter berdasarkan kategori
   const filteredItems =
     selectedCategory === "All"
@@ -42,7 +42,10 @@ const Card = () => {
       : data[selectedCategory] || [];
 
   return (
-    <section className="py-10 bg-white">
+    <section
+      id="kategori"
+      className="py-10 bg-white scroll-mt-28"
+    >
       <div className="max-w-screen-xl mx-auto px-4">
         {/* Judul */}
         <h2 className="text-xl font-bold text-gray-800 mb-4">
@@ -68,32 +71,26 @@ const Card = () => {
 
         {/* Kartu */}
         <div className="flex space-x-4 overflow-x-auto scrollbar-hide px-2">
-          {filteredItems.map((item, index) => {
-
-
-            return (
-              <div
-                key={index}
-                className="min-w-[220px] bg-white border rounded-xl shadow hover:shadow-md transition cursor-pointer"
-                onClick={() => setSelected(item)}
-              >
-                <img
-                  src={item.image}
-                  alt={item.name}
-                  className="w-full h-40 object-cover rounded-t-xl"
-                />
-                <div className="p-3">
-                  <h3 className="font-semibold text-sm text-gray-900">
-                    {item.name}
-                  </h3>
-                  <p className="text-xs text-gray-700">{item.location}</p>
-                  <p className="text-sm font-bold text-amber-500 mt-1">
-                    Rp {Number(item.price).toLocaleString()}
-                  </p>
-                </div>
+          {filteredItems.map((item, index) => (
+            <div
+              key={index}
+              className="min-w-[220px] bg-white border rounded-xl shadow hover:shadow-md transition cursor-pointer"
+              onClick={() => setSelected(item)}
+            >
+              <img
+                src={item.image}
+                alt={item.name}
+                className="w-full h-40 object-cover rounded-t-xl"
+              />
+              <div className="p-3">
+                <h3 className="font-semibold text-sm text-gray-900">{item.name}</h3>
+                <p className="text-xs text-gray-700">{item.location}</p>
+                <p className="text-sm font-bold text-amber-500 mt-1">
+                  Rp {Number(item.price).toLocaleString()}
+                </p>
               </div>
-            );
-          })}
+            </div>
+          ))}
         </div>
       </div>
 
