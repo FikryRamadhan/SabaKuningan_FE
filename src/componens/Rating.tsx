@@ -2,21 +2,21 @@ import React from 'react';
 
 const rating = [
   {
-    name: 'Unknown',
+    name: 'Warga Kuningan',
     rating: '★★★★★',
-    text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores non hic aliquam aliquid ullam. Dolore totam quisquam, eius laborum facere illum est fugiat natus temporibus sit ea reprehenderit cupiditate labore!',
+    text: 'Website SabaKuningan sangat bermanfaat. Saya jadi tahu banyak tempat menarik di daerah sendiri. Informasinya lengkap dan tampilannya enak dilihat.',
     avatar: 'https://api.dicebear.com/7.x/micah/svg?seed=Sarah',
   },
   {
-    name: 'Unknown',
+    name: 'Pengguna Lokal',
     rating: '★★★★★',
-    text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores non hic aliquam aliquid ullam. Dolore totam quisquam, eius laborum facere illum est fugiat natus temporibus sit ea reprehenderit cupiditate labore!',
+    text: 'Saya sering bingung mau jalan-jalan ke mana di akhir pekan. Setelah kenal SabaKuningan, semua jadi lebih mudah. Banyak rekomendasi tempat dan makanannya juga menggoda.',
     avatar: 'https://api.dicebear.com/7.x/micah/svg?seed=Michael',
   },
   {
-    name: 'Unknown',
+    name: 'Warga Setempat',
     rating: '★★★★★',
-    text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores non hic aliquam aliquid ullam. Dolore totam quisquam, eius laborum facere illum est fugiat natus temporibus sit ea reprehenderit cupiditate labore!",
+    text: 'Terima kasih sudah membuat website seperti ini. Sebagai warga Kuningan, saya merasa terbantu. Apalagi sekarang banyak info lowongan kerja dan budaya lokal juga ditampilkan.',
     avatar: 'https://api.dicebear.com/7.x/micah/svg?seed=Emma',
   },
 ];
@@ -44,5 +44,3 @@ const Testimonials = () => {
 };
 
 export default Testimonials;
-
-
