@@ -6,7 +6,7 @@ import CustomAlert from '../componens/CustomAlert';
 
 
 const Login = () => {
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [alert, setAlert] = useState<{ type: 'success' | 'error' | 'warning', message: string } | null>(null);
   const navigate = useNavigate();
@@ -19,14 +19,14 @@ const Login = () => {
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!username || !password) {
+    if (!email || !password) {
       showAlert('warning', 'Username dan Password harus diisi.');
       return;
     }
 
     try {
       const response = await axios.post("http://127.0.0.1:8000/api/auth/login", {
-        username,
+        email,
         password
       });
 
@@ -47,7 +47,7 @@ const Login = () => {
       <div className="w-full max-w-md bg-amber-100 p-8 rounded-lg shadow-md">
         <div className="flex justify-center mb-6">
           <div className="w-16 h-16 rounded-full bg-gray-200 flex items-center justify-center">
-            <svg className="w-8 h-8 text-gray-500" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+            <svg className="w-8 h-8 text-gray-50 to-[#3a37ed]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" d="M5.121 17.804A7 7 0 0112 15a7 7 0 016.879 2.804M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
             </svg>
           </div>
@@ -57,12 +57,12 @@ const Login = () => {
 
         <form className="space-y-4" onSubmit={handleLogin}>
           <div>
-            <label className="block text-sm font-semibold text-black">Username</label>
+            <label className="block text-sm font-semibold text-black">Gmail</label>
             <input
               type="text"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              placeholder="Enter your Username"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Enter your Gmail"
               className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
