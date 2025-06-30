@@ -94,18 +94,7 @@ const Register = () => {
           </button>
         </form>
 
-        <div className="my-6 flex items-center">
-          <hr className="flex-grow border-gray-950" />
-          <span className="mx-4 text-black text-sm">OR</span>
-          <hr className="flex-grow border-gray-950" />
-        </div>
-
-        <div className="space-y-3">
-          <button className="w-full py-2 px-4 bg-white border border-gray-300 rounded-md flex items-center justify-center hover:bg-amber-500 font-medium">
-            <img src="https://www.svgrepo.com/show/475656/google-color.svg" alt="Google" className="w-5 h-5 mr-2" />
-            Continue with Google
-          </button>
-        </div>
+     
 
         <p className="mt-6 text-center text-sm text-black">
           Already have an account?{' '}
